@@ -29,4 +29,14 @@
 		      <td>{{ perfilUsuario.emailVerified ? 'Si' : 'No' }}</td>
 		    </tr>
 		  </table>
-		</ng-container>
+		
+	</ng-container>
+		<ng-container *ngIf="testResponse">
+			<h2>Informacion version</h2>
+			<table>
+			  <tr *ngIf="testResponse.version">
+				<th scope="row">Version</th>
+				<td>{{ testResponse.version }}</td>
+			  </tr>
+			</table>
+		  </ng-container>

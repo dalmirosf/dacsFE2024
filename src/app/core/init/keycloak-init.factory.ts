@@ -7,9 +7,9 @@ export function initializeKeycloak(
     return () =>
       keycloak.init({
         config: {
-          url:  'http://localhost:8080' ,
-          realm: 'dacs',
-          clientId: 'dacs2023-fe',
+          url: environment.keycloak.url,
+          realm: environment.keycloak.realm,
+          clientId: environment.keycloak.clientId,
         },
         initOptions: {
           onLoad: 'check-sso',

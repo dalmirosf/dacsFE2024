@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './core/init/keycloak-init.factory';
-
+import { ApiService } from './core/services/apiservice.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +14,8 @@ import { initializeKeycloak } from './core/init/keycloak-init.factory';
   imports: [
     BrowserModule,
     KeycloakAngularModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule  
   ],
   providers: [
     {
@@ -21,7 +23,8 @@ import { initializeKeycloak } from './core/init/keycloak-init.factory';
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService],
-    }
+    },
+    ApiService,
   ],
   bootstrap: [AppComponent]
 })
