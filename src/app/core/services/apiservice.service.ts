@@ -23,6 +23,13 @@ export class ApiService {
             .pipe();
     }
 
+    getConectorPing() {
+        const url = `${environment.backendForFrontendUrl}/conector/ping`;
+        return this.http
+            .get(url, { responseType: 'text' })
+            .pipe();
+    }
+
     getTest() {
         const url ='assets/json/test.json';
         return this.http

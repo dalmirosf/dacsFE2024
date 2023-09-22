@@ -4,6 +4,7 @@
 		<button *ngIf="!isLogueado" type="button" (click)="iniciarSesion()">Iniciar Session</button>
 <ng-container *ngIf="role">
 <h2>TIENE EL ROLL DE APP !!</h2>
+
 </ng-container>
 		<ng-container *ngIf="perfilUsuario">
 		  <h2>Informacion del Usuario</h2>
@@ -39,4 +40,24 @@
 				<td>{{ testResponse.version }}</td>
 			  </tr>
 			</table>
-		  </ng-container>
+	</ng-container>
+
+
+<ng-container *ngIf="apiPing">
+	<h2>PING A BFF</h2>
+	<table>
+	  <tr *ngIf="apiPing">
+		<th scope="row">Response</th>
+		<td>{{ apiPing }}</td>
+	  </tr>
+	</table>
+</ng-container>
+<ng-container *ngIf="apiConectorPing">
+	<h2>PING A CONECTOR</h2>
+	<table>
+	  <tr *ngIf="apiConectorPing">
+		<th scope="row">Response</th>
+		<td>{{ apiConectorPing }}</td>
+	  </tr>
+	</table>
+</ng-container>
