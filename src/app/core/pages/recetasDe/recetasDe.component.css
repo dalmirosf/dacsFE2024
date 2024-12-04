@@ -1,0 +1,90 @@
+/* Contenedor de la cuadrícula */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    grid-auto-rows: minmax(120px, auto);   /* Ajuste de filas */
+    gap: 15px;                             /* Espacio entre elementos */
+    width: 80%;                            /* Ancho total */
+    margin: 20px auto;                     /* Centra el grid */
+  }
+  
+  /* Estilo para cada elemento de la cuadrícula */
+  .image-item {
+    display: flex;                         /* Flex para alinear imagen y texto */
+    align-items: center;                   /* Centra verticalmente */
+    padding: 10px;
+    border: 1px solid #ddd;                /* Borde fino */
+    border-radius: 8px;                    /* Bordes redondeados */
+    background-color: #f9f9f9;             /* Fondo claro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s ease;       /* Efecto al pasar */
+  }
+  
+  /* Efecto al pasar el ratón */
+  .image-item:hover {
+    transform: scale(1.05);                /* Agranda ligeramente */
+  }
+  
+  /* Imagen dentro del elemento */
+  .image-item img {
+    width: 100px;                          /* Ancho fijo de la imagen */
+    height: 100px;                         /* Altura fija */
+    object-fit: cover;                     /* Ajusta la imagen al contenedor */
+    border-radius: 8px;                    /* Bordes redondeados */
+    margin-right: 15px;                    /* Espacio entre imagen y texto */
+  }
+  
+  /* Título de la receta */
+  .image-item .receta-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;                           /* Color del texto */
+  }
+  
+/* Estilo del corazón */
+.heart {
+  position: absolute;                   /* Posiciona el corazón sobre el item */
+  bottom: 10px;
+  right: 10px;
+  font-size: 40px;                       /* Tamaño del corazón */
+  color: #ddd;                           /* Color inicial del corazón */
+  cursor: pointer;                      /* Cambia el cursor a mano */
+  transition: color 0.3s ease;           /* Transición para el cambio de color */
+  z-index: 1;                            /* Asegura que el corazón esté sobre el contenido */
+}
+
+/* Estilo cuando el corazón está marcado (rojo) */
+.heart.liked {
+  color: red;                            /* Rojo cuando está marcado */
+}
+
+
+.else p {
+  color: black;
+  font-size: 24px; /* Aumenta el tamaño de la fuente */
+  font-weight: bold; /* Hace el texto más grueso */
+  text-align: center; /* Centra el texto horizontalmente */
+  position: fixed; /* Fija la posición en la pantalla */
+  bottom: 100px; /* del fondo */
+  left: 50%; /* Ajusta horizontalmente */
+  transform: translateX(-50%); /* Centra el texto horizontalmente */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+  padding: 10px 20px; /* Añade espacio alrededor del texto */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+.Cargando p {
+  color: black;
+  font-size: 24px; /* Aumenta el tamaño de la fuente */
+  font-weight: bold; /* Hace el texto más grueso */
+  text-align: center; /* Centra el texto horizontalmente */
+  position: fixed; /* Fija la posición en la pantalla */
+  bottom: 100px; /* del fondo */
+  left: 50%; /* Ajusta horizontalmente */
+  transform: translateX(-50%); /* Centra el texto horizontalmente */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+  padding: 10px 20px; /* Añade espacio alrededor del texto */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}

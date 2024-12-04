@@ -1,0 +1,24 @@
+footer {
+    position: absolute;  /* Permite que el footer se coloque en la parte inferior de la página */
+    bottom: 0;           /* Siempre al fondo del documento */
+    left: 0;             /* Alineado a la izquierda */
+    width: 100%;         /* Que ocupe todo el ancho de la pantalla */
+    padding: 10px 0;     /* Espaciado superior e inferior dentro del footer */
+    text-align: left;    /* Alineación de los iconos a la izquierda */
+    background-color: transparent; /* Sin fondo */
+    visibility: hidden; /* Oculta el footer inicialmente */
+    opacity: 0;          /* Hace el footer invisible inicialmente */
+    transition: opacity 0.3s ease; /* Transición suave para mostrarlo */
+  }
+  
+  /* Estilo cuando el contenido se ha desplazado hacia abajo */
+  body.scrolled footer {
+    visibility: visible; /* Muestra el footer cuando se hace scroll */
+    opacity: 1;          /* Hace el footer visible */
+  }
+  
+  footer i {
+    font-size: 1.5rem; /* Tamaño de los iconos */
+    margin-left: 10px; /* Espacio a la izquierda de los iconos */
+  }
+  

@@ -1,0 +1,82 @@
+/* Estilo para el contenedor de las imágenes */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    grid-template-rows: repeat(4, 1fr);   /* 4 filas */
+    gap: 10px;                            /* Espacio entre imágenes */
+    width: 60%;                           /* Ancho del 60% */
+    margin: 20px auto;                    /* Centra el grid en la página */
+}
+
+/* Estilo para cada imagen dentro del grid */
+.image-item {
+    position: relative;
+    width: 90%;
+    padding-top: 50%;                     /* Relación de aspecto 4:3 */
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #ddd;               /* Borde fino */
+    cursor: pointer;                     /* Cambiar cursor cuando está sobre la imagen */
+    transition: all 0.3s ease;            /* Transición suave para efectos */
+}
+
+/* Asignar imágenes como fondo */
+.image-item:nth-child(1) {
+    background-image: url('./imagenes/arroces.jpg');
+}
+.image-item:nth-child(2) {
+    background-image: url('./imagenes/bebidas.jpg');
+}
+.image-item:nth-child(3) {
+    background-image: url('./imagenes/carnes.jpg');
+}
+.image-item:nth-child(4) {
+    background-image: url('./imagenes/dulces.jpg');
+}
+.image-item:nth-child(5) {
+    background-image: url('./imagenes/ensalada.jpg');
+}
+.image-item:nth-child(6) {
+    background-image: url('./imagenes/frutas.jpg');
+}
+.image-item:nth-child(7) {
+    background-image: url('./imagenes/guarniciones.jpg');
+}
+.image-item:nth-child(8) {
+    background-image: url('./imagenes/helados.jpg');
+}
+.image-item:nth-child(9) {
+    background-image: url('./imagenes/legumbres.jpg');
+}
+.image-item:nth-child(10) {
+    background-image: url('./imagenes/mariscos.jpg');
+}
+.image-item:nth-child(11) {
+    background-image: url('./imagenes/panes.jpg');
+}
+.image-item:nth-child(12) {
+    background-image: url('./imagenes/pastas.jpg');
+}
+
+/* Mostrar el texto basado en el atributo data-name */
+.image-item::before {
+    content: attr(data-name); /* Extrae el valor del atributo data-name */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8); /* Mejor visibilidad */
+}
+
+/* Efecto al pasar el ratón sobre la imagen */
+.image-item:hover {
+    filter: brightness(70%); /* Oscurece la imagen al pasar el ratón */
+}
+
+/* Agregar un margen inferior a los elementos de la última fila (4ta fila) */
+.image-item:nth-child(n+10) {
+    margin-bottom: 40px; /* Margen inferior para la última fila */
+}

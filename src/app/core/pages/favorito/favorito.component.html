@@ -1,0 +1,22 @@
+<div class="image-container">
+  <div class="overlay"></div>
+  <div class="overlay-text">
+    <p class="main-text">Estos son tus favoritos</p>
+  </div>
+</div>
+
+@if(tieneFavoritos) {
+  <div class="image-grid">
+    @for(item of recetaResultado$ | async; track item.id) {
+      <div class="image-item" (click)="buscarReceta(item.id)">
+        <img [src]="item.image" alt="{{ item.title }}" />
+        <p class="receta-title">{{ item.title }}</p>
+        <span class="heart liked" (click)="toggleHeart($event, item.id)">&hearts;</span> <!-- Corazón -->
+      </div>
+    }
+  </div>
+} @else {
+  <div class="else">
+    <p>No tienes recetas favoritas aún.</p>
+  </div>
+}

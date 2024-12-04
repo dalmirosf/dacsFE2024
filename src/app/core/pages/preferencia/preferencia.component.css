@@ -1,0 +1,44 @@
+/* Centrar las columnas en la pantalla */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Ocupa toda la altura de la pantalla */
+  }
+  
+  /* Espaciado entre las columnas */
+  .row {
+    display: flex;
+    justify-content: space-between; /* Coloca las columnas una al lado de la otra */
+    gap: 20px; /* Espacio entre las dos columnas */
+    width: 70%; /* Ajustar el tamaño del contenedor */
+    margin-top: 20px;
+  }
+  
+  .column {
+    width: 100%;
+  }
+  
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Espaciado entre los checkboxes */
+  .form-check {
+    margin-bottom: 30px;
+  }
+  
+  /* Para pantallas más pequeñas, ajusta el ancho de las columnas */
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column; /* En pantallas pequeñas, apilar las columnas */
+      gap: 10px; /* Reduce el espacio entre columnas */
+    }
+  
+    .col-md-5 {
+      width: 100%; /* En pantallas pequeñas, las columnas ocupan todo el ancho */
+    }
+  }
+  

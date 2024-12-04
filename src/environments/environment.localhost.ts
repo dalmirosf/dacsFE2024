@@ -5,5 +5,5 @@ export const environment = {
         realm: 'dacs',
         clientId: 'dacs2023-fe'
     },
-      backendForFrontendUrl: '/api'
+      backendForFrontendUrl: '/api' //porque apache esta como proxy inverso
 };

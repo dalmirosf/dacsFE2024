@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { IRequestTest } from '../models/request.interface';
-
 import { IResponse, ITestResponse } from '../models/response.interface';
+import { AuthService } from './auth.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ApiService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private authService: AuthService) {
 
     }
 
 
-    getPing() {
+    getPing() { 
         const url = `${environment.backendForFrontendUrl}/ping`;
         return this.http
             .get(url, { responseType: 'text' })
@@ -44,9 +44,10 @@ export class ApiService {
 
     get headers() {
         return {
-            headers: {
+            headers: new HttpHeaders({
                 'Content-Type': 'application/json',
-            },
+                'Authorization': `Bearer ${this.authService.getToken()}`
+            })
         };
     }
 

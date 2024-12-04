@@ -1,0 +1,51 @@
+<div class="image-container">
+    <div class="overlay"></div>
+    <div class="overlay-text">
+      <p class="main-text">Receta</p>
+      <p class="sub-text">{{ recetaSeleccionada?.title  }}</p>
+    </div>
+  </div>
+  
+  @if (recetaSeleccionada) {
+    <div class="receta-detalle">
+      <div class="receta-contenedor">
+        <!-- Columna 1: Imagen -->
+        <div class="receta-imagen">
+          <img [src]="recetaSeleccionada.image" alt="{{ recetaSeleccionada.title }}" />
+        </div>
+  
+        <!-- Columna 2: Información de la receta -->
+        <div class="receta-info">
+          <p><strong>Receta completa: </strong> 
+            <a href="{{ recetaSeleccionada.sourceUrl }}" target="_blank">{{ recetaSeleccionada.sourceName }}</a>
+          </p>
+          <p><strong>Porciones:</strong> {{ recetaSeleccionada.servings }}</p>
+          <p><strong>Tiempo total:</strong> {{ recetaSeleccionada.readyInMinutes }} minutos</p>
+        </div>
+      </div>
+  
+      <!-- Lista de ingredientes -->
+      <div class="ingredientes">
+        <h3>Ingredientes:</h3>
+        <div class="ingredientes-lista">
+          <ul>
+            @for (ingrediente of ingredientesLista; track ingrediente.name) {
+              <li>
+                <p><strong>{{ ingrediente.name }}</strong></p>
+                <ul>
+                  <li><strong>Cantidad:</strong> {{ ingrediente.measures.metric.amount }} {{ ingrediente.measures.metric.unitShort }}</li>
+                  <li>{{ ingrediente.original }}</li>
+                </ul>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  } @else {
+    <div class="else ">
+        <p>Cargando receta...</p>
+    </div>
+  }
+  

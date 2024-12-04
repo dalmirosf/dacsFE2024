@@ -1,0 +1,43 @@
+<nav>
+  <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link categoria" routerLink="categoria" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" href="#">Categorías</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link favoritos" routerLink="favorito" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" href="#">Favoritos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link preferencias" routerLink="preferencia" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" href="#">Preferencias</a>
+      </li>
+  </ul>
+
+  <h2 class="search-header">Ingresá los ingredientes que tenés y encontrá una receta</h2>
+
+  <section class="main-input">
+      <div class="main-input-container">
+          <input 
+            type="text" 
+            aria-hidden="buscar" 
+            placeholder="Buscar..."
+            [value]="searchQuery"  
+            (input)="onSearchInput($event)" 
+            (keydown.enter)="buscar()">  <!-- Actualiza el valor de searchQuery en el componente -->
+        <span class="search-icon"></span>
+      </div>
+  </section>
+
+
+  <div class="menu-container">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <div class="menu-icon"  (click)="toggleMenu()">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#(LOGOUT AL BFF KEYCLOAK?)">Cerrar sesión</a></li>
+    </ul>
+  </div>
+
+</nav>

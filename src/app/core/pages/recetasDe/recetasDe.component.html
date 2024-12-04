@@ -1,0 +1,31 @@
+<div class="image-container">
+  <div class="overlay"></div>
+  <div class="overlay-text">
+    <p class="main-text">Recetas de: {{ this.categoria }}</p>
+  </div>
+</div>
+
+@if(cargandoRecetas) {
+  <div class="image-grid">
+    <div class="Cargando">
+      <p>Cargando recetas...</p>
+    </div>
+  </div>
+} @else {
+  <!-- Verifica si hay recetas usando  -->
+  @if(tieneRecetas) {
+    <div class="image-grid">
+      @for(item of (recetaResultado$ | async)?.results; track item.id) {
+        <div class="image-item" (click)="buscarReceta(item.id)">
+          <img [src]="item.image" alt="{{ item.title }}" />
+          <p class="receta-title">{{ item.title }}</p>
+          <span class="heart" (click)="toggleHeart($event, item.id)">&hearts;</span> <!-- Corazón -->
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="else">
+      <p>No se encontraron recetas teniendo en cuenta tu dieta e intolerancia/s.</p>
+    </div>
+  }
+} 

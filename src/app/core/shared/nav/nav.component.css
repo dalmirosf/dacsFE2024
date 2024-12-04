@@ -1,0 +1,222 @@
+/* Contenedor principal */
+.nav-link {
+    font-size: 15px;
+    color: black;
+    position: relative; /* Necesario para la línea debajo */
+    padding-bottom: 5px; /* Espacio para la línea debajo */
+}
+
+.nav-link:hover {
+    color: #8dabb3;
+}
+
+.nav-item:last-child .nav-link {
+    margin-bottom: 20px; /* Ajusta el espacio según sea necesario */
+}
+
+.main-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo para los enlaces cuando están activos */
+.nav-link.active {
+    color: #8dabb3; /* Cambia el color cuando está activo (puedes elegir cualquier color) */
+}
+
+/* Línea debajo del enlace activo */
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Grosor de la línea */
+    background-color: #8dabb3; /* Color de la línea */
+}
+
+/* Estilos del contenedor del campo de búsqueda */
+.main-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+    padding: 4px 10px;
+    width: 500px; /* tamaño del buscador */
+    height: 35px; /* tamaño del buscador */
+    max-width: 100%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Campo de entrada */
+.main-input-container input[type="text"] {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
+    padding: 4px 0;
+}
+
+/* Icono de búsqueda */
+.search-icon {
+    width: 16px; /* Tamaño del icono */
+    height: 16px;
+    background-image: url('./imagenes/lupa.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 8px; /* Espacio entre el icono y el campo */
+}
+
+.search-header {  /*Texto: ingresa los ingredientes...*/
+    text-align: center; /* Centramos el texto horizontalmente */
+    margin-bottom: 10px; /* Agregamos un margen inferior para separar del input */
+    font-size: 20px;
+    color: #aac1c6;
+}
+
+/* Estilos para el contenedor del menú */
+.menu-container {
+    position: fixed;  /* Fijado en la esquina de la pantalla */
+    top: 20px;  /* Alineado al top de la página */
+    right: 20px;  /* Alineado al lado derecho de la página */
+    display: inline-block;
+    z-index: 1000;  /* Para asegurarse de que esté encima de otros elementos */
+}
+  
+/* Estilos para los 3 puntos */
+.menu-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #333;
+}
+  
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+    position: absolute;
+    top: 30px; /* Ajusta la posición para que esté debajo del icono */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: none; /* Oculto por defecto */
+}
+
+/* Estilo para mostrar el menú cuando `menuVisible` sea true */
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Estilos del texto dentro del menú */
+.dropdown-menu p {
+    margin: 0;
+    padding: 8px;
+    cursor: pointer;
+}
+  
+.dropdown-menu p:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para el botón blanco */
+.menu-container .btn {
+    background-color: white; /* Fondo blanco */
+    color: #333; /* Color del texto (oscuro para contraste) */
+    border: 1px solid #ccc; /* Borde gris claro */
+    padding: 10px 15px; /* Relleno (opcional para ajustar el tamaño del botón) */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+  }
+  
+  .menu-container .btn:hover {
+    background-color: #dff0f5; /* Fondo blanco con un gris muy claro al pasar el ratón */
+    border-color: #8dabb3; /* Cambiar el borde a un azul cuando se pasa el ratón */
+  }
+  
+  .menu-container .btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.5); /* Sombra azul cuando el botón está enfocado (por ejemplo, al hacer clic o al tabular) */
+    outline: none; /* Eliminar el contorno predeterminado */
+  }
+  
+  /* Estilos para el icono de menú dentro del botón */
+  .menu-container .menu-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 10px;
+    height: 18px;
+  }
+  
+  .menu-container .menu-icon .dot {
+    /*width: 100%; */
+    height: 4px;
+    background-color: #333; /* Color oscuro para las "líneas" del menú */
+    border-radius: 2px;
+    transition: background-color 0.3s ease; /* Animación suave para el cambio de color */
+  }
+  
+  .menu-container .btn:focus .menu-icon .dot {
+    background-color: #8dabb3; /* Cambio de color de las "líneas" a azul cuando el botón está enfocado */
+  }
+  
+  .menu-container .dropdown-menu {
+    margin-top: 10px; /* Asegura que el menú desplegable no esté pegado al botón */
+  }
+
+  .menu-container .dropdown-item:hover {
+    background-color: #dff0f5; /* Fondo blanco con un gris muy claro al pasar el ratón */
+ }
+  
+  /* Eliminar la flecha del dropdown */
+    .menu-container .btn.dropdown-toggle::after {
+        display: none; /* Elimina el pseudo-elemento que contiene la flecha */
+    }
+
+    .nav {
+        list-style: none; /* Elimina los puntos de lista predeterminados */
+        padding: 0; /* Elimina el padding predeterminado del ul */
+        margin: 0; /* Elimina el margen predeterminado del ul */
+        display: flex; /* Alinea los elementos de la lista en fila */
+        justify-content: center; /* Centra horizontalmente los elementos dentro del ul */
+        gap: 20px; /* Espaciado entre los elementos */
+      }
+      
+      .nav-item {
+        margin: 0; /* Asegura que no haya márgenes adicionales */
+      }
+      
+      .nav-link {
+        display: block; /* Hace que el enlace sea un bloque clickeable */
+        padding: 10px 15px; /* Espaciado interno para los enlaces */
+        text-decoration: none; /* Elimina el subrayado de los enlaces */
+        color: #007bff; /* Color de texto predeterminado (azul) */
+        font-size: 16px; /* Tamaño de la fuente */
+        transition: color 0.3s ease, background-color 0.3s ease; /* Suaviza los cambios de color */
+      }
+      
+      .nav-link:hover {
+        color: #0056b3; /* Cambia el color del texto al pasar el mouse */
+        background-color: #e9ecef; /* Fondo más claro al pasar el mouse */
+        border-radius: 5px; /* Bordes redondeados */
+      }
+      
+      .nav-link.active {
+        font-weight: bold; /* Destaca la pestaña activa */
+        color: #fff; /* Cambia el color del texto de la pestaña activa */
+        background-color: #007bff; /* Fondo azul para la pestaña activa */
+        border-radius: 5px; /* Bordes redondeados */
+      }

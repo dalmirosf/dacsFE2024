@@ -87,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dacs:build:production"
+              "buildTarget": "dacs:build:production"
             },
             "development": {
-              "browserTarget": "dacs:build:development"
+              "buildTarget": "dacs:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dacs:build"
+            "buildTarget": "dacs:build"
           }
         },
         "test": {
